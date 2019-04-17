@@ -277,8 +277,8 @@ def out_of_the_money_options(options3, mid_strike):
     # At-the-money we have two quotes, so take the average
     df['Premium'] = (df['P'] + df['C']) / 2
     # Remove in-the-money options
-    df['Premium'].ix[condition1] = df['P'].ix[condition1]
-    df['Premium'].ix[condition2] = df['C'].ix[condition2]
+    df['Premium'].loc[condition1] = df['P'].loc[condition1]
+    df['Premium'].loc[condition2] = df['C'].loc[condition2]
 
     options4 = df[['Strike','Mid Strike','Premium']].copy()
     return options4
